@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>세균 배양 실험 안내</title>
+<meta name="description" content="디스크 확산법을 이용한 식물 추출물의 항균 활성 비교 실험, 접촉 표면과 위생 조건에 따른 생활 속 세균 배양 실험 안내">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700;900&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: lab guide — navy masthead, sticky chip nav, one column of numbered sections, term rows, diagram panels and two live models */
+:root{
+  --bg:#f4f5f8; --surface:#ffffff; --ink:#182131; --muted:#5a6475; --line:#d9dde5;
+  --navy:#1b2e57; --navy-2:#24396a; --accent:#1f3f7a; --accent-2:#3c63a8; --accent-soft:#e4e9f4;
+  --brick:#a5452a; --warn:#7d5300; --warn-bg:#faf1dc;
+  --agar:#ecd38e; --agar-2:#dfbd66; --lawn:#b8964a; --clear:#f7eecf; --dish:#7d8a91; --disk:#ffffff;
+  --display:"Noto Serif KR","Nanum Myeongjo",Georgia,serif;
+  --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1420; --surface:#171e2c; --ink:#e3e8f0; --muted:#97a2b4; --line:#29324a;
+  --navy:#111a2e; --navy-2:#18233d; --accent:#8fb0ea; --accent-2:#6e93d6; --accent-soft:#1b2740;
+  --brick:#e0805f; --warn:#e9b95c; --warn-bg:#2a2314;
+  --agar:#7d6a3a; --agar-2:#6d5a2e; --lawn:#c2a35e; --clear:#3b3526; --dish:#8b98a8; --disk:#e8ecf2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --surface:#171e2c; --ink:#e3e8f0; --muted:#97a2b4; --line:#29324a;
+  --navy:#111a2e; --navy-2:#18233d; --accent:#8fb0ea; --accent-2:#6e93d6; --accent-soft:#1b2740;
+  --brick:#e0805f; --warn:#e9b95c; --warn-bg:#2a2314;
+  --agar:#7d6a3a; --agar-2:#6d5a2e; --lawn:#c2a35e; --clear:#3b3526; --dish:#8b98a8; --disk:#e8ecf2; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:15.5px/1.75 var(--body);margin:0;word-break:keep-all}
+a{color:var(--accent)}
+.wrap{max-width:880px;margin:0 auto;padding-inline:18px}
+
+/* masthead */
+.mast{background:var(--navy);color:#eef1f7;position:relative;overflow:hidden}
+.mast::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.mast .wrap{position:relative;padding-block:44px 40px}
+.mast .eyebrow{font:500 12px var(--mono);letter-spacing:.1em;color:#a9bbdf;text-transform:uppercase}
+.mast h1{font:900 clamp(1.9rem,5.2vw,2.75rem)/1.25 var(--display);margin:10px 0 14px;letter-spacing:-.01em;text-wrap:balance}
+.mast .lede{color:#c6d0e4;max-width:60ch;margin:0}
+.mast-art{position:absolute;right:-30px;top:18px;width:230px;opacity:.95}
+.exps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:24px}
+.exps a{display:block;text-decoration:none;color:#eef1f7;border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:12px 14px;background:rgba(255,255,255,.04)}
+.exps a:hover{background:rgba(255,255,255,.08)}
+.exps span{display:block;font:500 11.5px var(--mono);color:#a9bbdf;letter-spacing:.06em;margin-bottom:2px}
+.exps b{font:700 15.5px/1.5 var(--body)}
+.how{margin:22px 0 0;padding-left:20px;display:grid;gap:3px;font-size:14px;color:#c6d0e4;max-width:66ch}
+.how b{color:#fff;font-weight:500}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:880px;margin:0 auto;padding:10px 18px}
+nav a{flex:none;font-size:13px;text-decoration:none;color:var(--ink);padding:5px 11px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+nav a span{font-family:var(--mono);color:var(--muted);margin-right:5px}
+nav a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* sections */
+main .wrap{padding-bottom:64px}
+section{padding-top:52px;scroll-margin-top:58px}
+.sec-no{font:500 12px var(--mono);color:var(--accent-2);letter-spacing:.08em}
+section>h2{font:700 1.55rem/1.35 var(--display);margin:2px 0 2px;text-wrap:balance}
+.meta{font:12.5px var(--mono);color:var(--muted);margin-bottom:18px}
+h3{font-size:1.02rem;margin:30px 0 10px;font-weight:700;display:flex;gap:8px;align-items:baseline}
+h3 i{font:500 12px var(--mono);color:var(--muted);font-style:normal}
+p{margin:0 0 12px}
+.muted{color:var(--muted)}
+.small{font-size:13.5px;color:var(--muted)}
+.part-break{margin-top:64px;padding:18px 0 4px;border-top:2px solid var(--navy-2)}
+.part-break .sec-no{color:var(--brick)}
+.part-break h2{font:900 1.75rem/1.35 var(--display);margin:4px 0 6px;text-wrap:balance}
+
+/* term rows */
+.qa{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);border-top:1px solid var(--line)}
+.qa:last-of-type{border-bottom:1px solid var(--line)}
+.q{padding:10px 14px 10px 0;color:var(--muted);font-weight:500;font-size:14px}
+.a{padding:10px 0;min-width:0}
+.a p{margin:0 0 6px}.a p:last-child{margin:0}
+.hl{background:var(--accent-soft);color:var(--accent);font-weight:700;padding:0 5px;border-radius:3px}
+.k{font-family:var(--mono);font-size:.92em}
+
+/* blocks */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;margin:14px 0}
+.panel h4{margin:0 0 2px;font-size:14px}
+.panel .cap{font-size:12.5px;color:var(--muted);margin:8px 0 0}
+.note{margin:16px 0;padding:12px 14px;background:var(--warn-bg);border-radius:6px;font-size:14px}
+.note b{color:var(--warn)}
+.note ul{margin:4px 0 0;padding-left:18px}
+.info{margin:16px 0;padding:12px 14px;background:var(--accent-soft);border-radius:6px;font-size:14px}
+.info b{color:var(--accent)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.two>*{min-width:0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.tile .lbl{font:500 11.5px var(--mono);color:var(--muted);letter-spacing:.04em}
+.tile .val{font:700 1.3rem/1.3 var(--display);color:var(--accent);margin:2px 0}
+.tile p{margin:0;font-size:13.5px;color:var(--muted)}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:12px 0;border-top:1px solid var(--line)}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:42px minmax(0,1fr);gap:4px;padding:10px 0;border-bottom:1px solid var(--line)}
+ol.steps li::before{content:counter(s,decimal-leading-zero);font:500 13px var(--mono);color:var(--accent-2);padding-top:2px}
+ol.steps b{font-weight:700}
+ul.dots{padding-left:18px;margin:8px 0}
+ul.dots li{margin-bottom:4px}
+
+.tbl{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:480px}
+th,td{border-bottom:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top}
+th{font-weight:500;color:var(--muted);font-size:12.5px;white-space:nowrap}
+td:first-child{font-weight:500}
+
+/* svg */
+svg{display:block;width:100%;height:auto}
+.st-ink{stroke:var(--ink)}.st-dish{stroke:var(--dish)}.st-acc{stroke:var(--accent)}.st-acc2{stroke:var(--accent-2)}.st-brick{stroke:var(--brick)}.st-line{stroke:var(--line)}.st-muted{stroke:var(--muted)}
+.f-agar{fill:var(--agar)}.f-agar2{fill:var(--agar-2)}.f-clear{fill:var(--clear)}.f-disk{fill:var(--disk)}.f-acc{fill:var(--accent)}.f-acc2{fill:var(--accent-2)}.f-soft{fill:var(--accent-soft)}.f-surf{fill:var(--surface)}.f-brick{fill:var(--brick)}.f-muted{fill:var(--muted)}.f-lawn{fill:var(--lawn)}.f-bg{fill:var(--bg)}
+.nf{fill:none}
+.tl{fill:var(--ink);font:12.5px var(--body)}
+.tlb{fill:var(--ink);font:700 12.5px var(--body)}
+.ts{fill:var(--muted);font:11.5px var(--body)}
+.tm{fill:var(--muted);font:11px var(--mono)}
+.ta{fill:var(--accent);font:700 12.5px var(--body)}
+.tb{fill:var(--brick);font:700 12px var(--body)}
+
+/* live models */
+.ctrl{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;margin:10px 0 4px;font-size:14px}
+.ctrl label{display:flex;gap:10px;align-items:center}
+.ctrl input[type=range]{width:170px;accent-color:var(--accent)}
+.ctrl select{font:13.5px var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:4px 8px}
+.out{font:500 13.5px var(--mono);color:var(--ink)}
+.out b{color:var(--accent)}
+.tag{display:inline-block;font:500 11.5px var(--mono);padding:2px 8px;border-radius:4px;background:var(--warn-bg);color:var(--warn)}
+input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+footer{border-top:1px solid var(--line);padding:24px 0 48px;font-size:13px;color:var(--muted)}
+footer .k{color:var(--muted)}
+@media (max-width:560px){.qa{grid-template-columns:1fr}.q{padding-bottom:0}.mast-art{width:150px;right:-40px;top:10px;opacity:.5}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <pattern id="lawn" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2.2" cy="2.2" r="1.6" style="fill:var(--lawn)"/><circle cx="6.7" cy="6.7" r="1.6" style="fill:var(--lawn)"/></pattern>
+  <radialGradient id="conc"><stop offset="0" style="stop-color:var(--accent-2);stop-opacity:.55"/><stop offset="1" style="stop-color:var(--accent-2);stop-opacity:0"/></radialGradient>
+</defs></svg>
+
+<header class="mast">
+  <div class="wrap">
+    <svg class="mast-art" viewBox="0 0 240 240" aria-hidden="true">
+      <circle cx="120" cy="120" r="104" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1.6"/>
+      <circle cx="120" cy="120" r="96" fill="rgba(236,211,142,.10)"/>
+      <circle cx="120" cy="120" r="46" fill="none" stroke="#e0a57f" stroke-width="1.4" stroke-dasharray="5 4"/>
+      <circle cx="120" cy="120" r="10" fill="rgba(255,255,255,.85)"/>
+      <circle cx="62" cy="80" r="4" fill="rgba(169,187,223,.7)"/><circle cx="178" cy="168" r="6" fill="rgba(169,187,223,.5)"/><circle cx="172" cy="70" r="3.5" fill="rgba(224,165,127,.7)"/><circle cx="72" cy="170" r="5" fill="rgba(224,165,127,.5)"/><circle cx="150" cy="190" r="3" fill="rgba(169,187,223,.6)"/>
+    </svg>
+    <div class="eyebrow">2026 · IGNIS · 세균 배양 실험 2종</div>
+    <h1>세균 배양 실험 안내</h1>
+    <p class="lede">배지 위에서 세균을 키우는 두 가지 실험의 원리와 방법을 정리했습니다. 실험 전에 기본 개념부터 순서대로 읽어 보세요.</p>
+    <div class="exps">
+      <a href="#exp1"><span>EXPERIMENT 1</span><b>디스크 확산법을 이용한 식물 추출물의 항균 활성 비교 실험</b></a>
+      <a href="#exp2"><span>EXPERIMENT 2</span><b>접촉 표면과 위생 조건에 따른 생활 속 세균 배양 실험</b></a>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="목차"><div class="chips">
+  <a href="#medium"><span>01</span>배지</a>
+  <a href="#colony"><span>02</span>집락</a>
+  <a href="#method"><span>03</span>기본 조작</a>
+  <a href="#disk"><span>04</span>디스크 확산법</a>
+  <a href="#vars"><span>05</span>변인</a>
+  <a href="#exp1"><span>E1</span>실험 1</a>
+  <a href="#exp2"><span>E2</span>실험 2</a>
+  <a href="#growth"><span>06</span>증식</a>
+  <a href="#safety"><span>!</span>안전</a>
+</div></nav>
+
+<main><div class="wrap">
+
+<!-- ======================= 01 배지 ======================= -->
+<section id="medium">
+  <div class="sec-no">01 · CONCEPT</div>
+  <h2>LB agar 배지</h2>
+  <div class="meta">Lysogeny Broth + agar · 세균 배양용 고체 배지</div>
+
+  <div class="panel">
+    <svg viewBox="0 0 560 210" role="img" aria-label="페트리 접시 단면도: 뚜껑, 한천 배지 층, 바닥 접시">
+      <path d="M70 118 L70 52 L470 52 L470 118" class="nf st-dish" stroke-width="1.8" stroke-linejoin="round"/>
+      <rect x="85" y="128" width="370" height="52" class="f-agar"/>
+      <rect x="85" y="128" width="370" height="6" class="f-agar2" opacity=".6"/>
+      <path d="M82 70 L82 182 L458 182 L458 70" class="nf st-ink" stroke-width="2" stroke-linejoin="round"/>
+      <g class="f-lawn"><circle cx="120" cy="126" r="3"/><circle cx="170" cy="126" r="3"/><circle cx="225" cy="126" r="3"/><circle cx="285" cy="126" r="3"/><circle cx="340" cy="126" r="3"/><circle cx="400" cy="126" r="3"/></g>
+      <path d="M478 54 L500 54" class="st-muted" stroke-width="1"/><text x="505" y="58" class="ts">뚜껑</text>
+      <path d="M458 155 L500 155" class="st-muted" stroke-width="1"/><text x="505" y="159" class="tlb">배지</text>
+      <path d="M400 122 L400 96 L430 96" class="nf st-muted" stroke-width="1"/><text x="300" y="92" class="ts">세균은 배지 표면에서 자람</text>
+      <text x="270" y="202" text-anchor="middle" class="ts">바닥 접시</text>
+    </svg>
+    <p class="cap">페트리 접시 단면. 바닥에 배지를 얇게 굳히고 그 표면에서 세균을 키운다.</p>
+  </div>
+
+  <h3>배지의 구성 <i>composition</i></h3>
+  <div class="qa"><div class="q">트립톤</div><div class="a"><p>단백질을 분해한 것. <span class="hl">아미노산</span>과 펩타이드를 공급한다.</p></div></div>
+  <div class="qa"><div class="q">효모 추출물</div><div class="a"><p>비타민과 핵산 재료를 공급한다.</p></div></div>
+  <div class="qa"><div class="q">염화나트륨 <span class="k">NaCl</span></div><div class="a"><p><span class="hl">삼투압</span>을 맞춰 세균이 터지거나 쪼그라들지 않게 한다.</p></div></div>
+  <div class="qa"><div class="q">한천 <span class="k">agar</span></div><div class="a"><p>해조류에서 얻은 다당류. 배지를 <span class="hl">젤리처럼 굳힌다</span>. 대부분의 세균이 분해하지 못해 배양 중에도 형태가 유지된다.</p></div></div>
+
+  <h3>배지 만들기 <i>2 g + 50 mL</i></h3>
+  <div class="panel">
+    <svg viewBox="0 0 560 150" role="img" aria-label="배지 만들기 4단계: 녹이기, 식히기, 붓기, 굳혀서 뒤집기">
+      <g transform="translate(18 10)">
+        <rect x="0" y="12" width="96" height="66" rx="7" class="f-soft st-ink" stroke-width="1.6"/>
+        <rect x="9" y="22" width="60" height="46" rx="3" class="f-surf st-dish" stroke-width="1.2"/>
+        <rect x="30" y="38" width="18" height="28" class="f-agar st-ink" stroke-width="1.2"/>
+        <path d="M34 34 q3 -6 0 -12 M44 34 q3 -6 0 -12" class="nf st-brick" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="84" cy="30" r="3.5" class="f-acc"/><circle cx="84" cy="44" r="3.5" class="f-acc"/>
+        <text x="48" y="104" text-anchor="middle" class="tlb">녹이기</text>
+        <text x="48" y="121" text-anchor="middle" class="tm">투명해질 때까지</text>
+      </g>
+      <path d="M125 46 L147 46" class="st-muted" stroke-width="1.4"/><path d="M145 41 L152 46 L145 51Z" class="f-muted"/>
+      <g transform="translate(166 10)">
+        <rect x="40" y="6" width="12" height="62" rx="6" class="f-surf st-ink" stroke-width="1.6"/>
+        <rect x="43.5" y="34" width="5" height="34" class="f-brick"/>
+        <circle cx="46" cy="72" r="10" class="f-brick st-ink" stroke-width="1.6"/>
+        <text x="58" y="18" class="tb">50~55°C</text>
+        <text x="48" y="104" text-anchor="middle" class="tlb">식히기</text>
+        <text x="48" y="121" text-anchor="middle" class="tm">손으로 잡을 정도</text>
+      </g>
+      <path d="M273 46 L295 46" class="st-muted" stroke-width="1.4"/><path d="M293 41 L300 46 L293 51Z" class="f-muted"/>
+      <g transform="translate(314 10)">
+        <g transform="rotate(-32 30 30)"><rect x="18" y="4" width="24" height="42" class="f-agar st-ink" stroke-width="1.6"/></g>
+        <path d="M46 42 q5 10 3 22" class="nf" style="stroke:var(--agar-2)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M14 66 L14 78 L90 78 L90 66" class="nf st-ink" stroke-width="1.6"/>
+        <rect x="16" y="71" width="72" height="5.5" class="f-agar2"/>
+        <text x="52" y="104" text-anchor="middle" class="tlb">붓기</text>
+        <text x="52" y="121" text-anchor="middle" class="tm">벽을 따라 천천히</text>
+      </g>
+      <path d="M418 46 L440 46" class="st-muted" stroke-width="1.4"/><path d="M438 41 L445 46 L438 51Z" class="f-muted"/>
+      <g transform="translate(456 10)">
+        <path d="M6 50 L6 62 L88 62 L88 50" class="nf st-dish" stroke-width="1.6"/>
+        <path d="M12 56 L12 30 L82 30 L82 56" class="nf st-ink" stroke-width="1.6"/>
+        <rect x="14" y="32" width="66" height="6" class="f-agar2"/>
+        <text x="47" y="104" text-anchor="middle" class="tlb">굳히기</text>
+        <text x="47" y="121" text-anchor="middle" class="tm">30분 → 뒤집어 보관</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+
+<!-- ======================= 03 집락 ======================= -->
+<section id="colony">
+  <div class="sec-no">02 · CONCEPT</div>
+  <h2>집락 (colony)</h2>
+  <div class="meta">1 cell → visible colony</div>
+  <p>세균 한 개는 눈에 보이지 않지만, 배지 위 한 자리에서 계속 분열하면 수가 쌓여 눈에 보이는 덩어리가 된다. 이것이 <span class="hl">집락</span>이다.</p>
+  <div class="panel">
+    <svg viewBox="0 0 560 150" role="img" aria-label="세균 1개가 2개, 4개, 8개로 분열해 약 10시간 뒤 집락이 되는 과정">
+      <g class="f-acc">
+        <ellipse cx="40" cy="58" rx="9" ry="5.5"/>
+        <ellipse cx="112" cy="58" rx="9" ry="5.5"/><ellipse cx="132" cy="58" rx="9" ry="5.5"/>
+        <ellipse cx="200" cy="50" rx="9" ry="5.5"/><ellipse cx="220" cy="50" rx="9" ry="5.5"/><ellipse cx="200" cy="66" rx="9" ry="5.5"/><ellipse cx="220" cy="66" rx="9" ry="5.5"/>
+        <ellipse cx="282" cy="50" rx="9" ry="5.5"/><ellipse cx="302" cy="50" rx="9" ry="5.5"/><ellipse cx="322" cy="50" rx="9" ry="5.5"/><ellipse cx="342" cy="50" rx="9" ry="5.5"/>
+        <ellipse cx="282" cy="66" rx="9" ry="5.5"/><ellipse cx="302" cy="66" rx="9" ry="5.5"/><ellipse cx="322" cy="66" rx="9" ry="5.5"/><ellipse cx="342" cy="66" rx="9" ry="5.5"/>
+      </g>
+      <path d="M368 58 L428 58" class="st-muted" stroke-width="1.6" stroke-dasharray="5 4"/><path d="M426 52 L436 58 L426 64Z" class="f-muted"/>
+      <circle cx="492" cy="58" r="44" class="f-agar2 st-ink" stroke-width="1.4"/>
+      <circle cx="478" cy="46" r="13" class="f-agar" opacity=".8"/>
+      <g text-anchor="middle">
+        <text x="40" y="104" class="tlb">1</text><text x="122" y="104" class="tlb">2</text><text x="210" y="104" class="tlb">4</text><text x="312" y="104" class="tlb">8</text><text x="492" y="122" class="ta">약 10억</text>
+        <text x="40" y="122" class="tm">0 min</text><text x="122" y="122" class="tm">20 min</text><text x="210" y="122" class="tm">40 min</text><text x="312" y="122" class="tm">60 min</text><text x="492" y="140" class="tm">≈10 h · 2^30</text>
+      </g>
+    </svg>
+  </div>
+  <div class="qa"><div class="q">집락 1개</div><div class="a"><p>처음 배지에 붙은 <span class="hl">세균 1개</span>에서 시작된 것으로 볼 수 있다. 그래서 집락 수로 표면의 오염 정도를 비교한다(실험 2).</p></div></div>
+  <div class="qa"><div class="q">집락의 형태</div><div class="a">
+    <svg viewBox="0 0 300 50" style="max-width:300px;margin:2px 0 6px" aria-hidden="true">
+      <circle cx="25" cy="25" r="16" class="f-agar2 st-ink" stroke-width="1.2"/>
+      <circle cx="85" cy="25" r="11" style="fill:#f1efe8;stroke:var(--dish)" stroke-width="1.2"/>
+      <path d="M128 25 m-18 0 a18 13 0 1 0 36 0 a18 13 0 1 0 -36 0" style="fill:#efc79c;stroke:#b8763a" stroke-width="1.2" stroke-dasharray="3 2"/>
+      <circle cx="190" cy="25" r="8" style="fill:#e5d0e4;stroke:#9a6898" stroke-width="1.2"/>
+      <path d="M240 13 l6 6 l8 -2 l-1 8 l6 6 l-8 2 l-2 8 l-6 -6 l-8 2 l1 -8 l-6 -6 l8 -2 Z" style="fill:#d9e3c8;stroke:#6f8a4a" stroke-width="1.2"/>
+    </svg>
+    <p>모양 · 색 · 크기 · 가장자리가 다르면 서로 다른 종류의 세균일 가능성이 높다.</p></div></div>
+</section>
+
+<!-- ======================= 04 기본 조작 ======================= -->
+<section id="method">
+  <div class="sec-no">03 · METHOD</div>
+  <h2>무균 조작 · 접종 · 배양</h2>
+  <div class="meta">aseptic technique · inoculation · incubation</div>
+
+  <h3>무균 조작 <i>원하는 균만 자라게</i></h3>
+  <p class="muted">지키지 않으면 결과에 나타난 집락이 시료에서 온 것인지 오염된 것인지 구분할 수 없다.</p>
+  <div class="qa"><div class="q">뚜껑</div><div class="a"><p>필요한 순간에만 <span class="hl">짧게, 비스듬히</span> 연다. 공기 중 균이 떨어지는 것을 줄인다.</p></div></div>
+  <div class="qa"><div class="q">피펫팁 · 면봉</div><div class="a"><p><span class="hl">1회용</span>. 사용 즉시 수거 용기에 버려 시료끼리 섞이지 않게 한다.</p></div></div>
+  <div class="qa"><div class="q">손 · 책상</div><div class="a"><p>작업 전 소독한다. 알코올은 인화성이 있으므로 불 가까이 두지 않는다.</p></div></div>
+  <div class="qa"><div class="q">말하기</div><div class="a"><p>배지 위에서 말하지 않는다. 침방울에도 세균이 있다.</p></div></div>
+
+  <h3>접종 <i>inoculation</i></h3>
+  <div class="two">
+    <div class="panel" style="margin:0">
+      <svg viewBox="0 0 240 200" role="img" aria-label="도말한 배지: 세균이 전체에 고르게 덮인 모습">
+        <circle cx="120" cy="100" r="86" class="f-agar st-ink" stroke-width="1.8"/>
+        <circle cx="120" cy="100" r="78" fill="url(#lawn)"/>
+        <path d="M70 140 L150 82" class="st-dish" stroke-width="4" stroke-linecap="round"/><path d="M150 82 L172 56" class="st-dish" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <h4>도말 · 실험 1</h4>
+      <p class="small">균액을 소량 떨어뜨리고 스프레더로 배지 전체에 빈틈없이 편다. 잔디처럼 고르게 덮여야 저지대의 경계가 선명해진다.</p>
+    </div>
+    <div class="panel" style="margin:0">
+      <svg viewBox="0 0 240 200" role="img" aria-label="면봉 접종한 배지: 지그재그로 바른 선">
+        <circle cx="120" cy="100" r="86" class="f-agar st-ink" stroke-width="1.8"/>
+        <path d="M70 52 L170 66 L70 84 L170 102 L70 120 L170 138 L72 152" class="nf st-acc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+      </svg>
+      <h4>면봉 접종 · 실험 2</h4>
+      <p class="small">정해진 면적을 같은 횟수로 문지른 면봉을 배지 표면에 지그재그로 가볍게 바른다.</p>
+    </div>
+  </div>
+
+  <h3>배양 <i>seal → flip → keep warm</i></h3>
+  <div class="panel">
+    <svg viewBox="0 0 560 180" role="img" aria-label="뒤집지 않으면 뚜껑의 물방울이 배지에 떨어지고, 뒤집으면 물방울이 뚜껑에 고인다">
+      <text x="135" y="18" text-anchor="middle" class="tb">✕ 그대로 두면</text>
+      <path d="M40 48 L40 36 L230 36 L230 48" class="nf st-dish" stroke-width="1.8"/>
+      <path d="M48 42 L48 116 L222 116 L222 42" class="nf st-ink" stroke-width="1.8"/>
+      <rect x="50" y="92" width="170" height="22" class="f-agar"/>
+      <g class="f-acc2"><path d="M90 39 q-4 7 0 11 q4 -4 0 -11Z"/><path d="M135 39 q-4 7 0 11 q4 -4 0 -11Z"/><path d="M180 39 q-4 7 0 11 q4 -4 0 -11Z"/></g>
+      <path d="M135 56 L135 84" class="st-acc2" stroke-width="1.4" stroke-dasharray="3 3"/>
+      <text x="135" y="146" text-anchor="middle" class="ts">물방울이 떨어져 세균이 번짐</text>
+      <text x="425" y="18" text-anchor="middle" class="ta">○ 뒤집으면</text>
+      <path d="M330 104 L330 116 L520 116 L520 104" class="nf st-dish" stroke-width="1.8"/>
+      <path d="M338 110 L338 36 L512 36 L512 110" class="nf st-ink" stroke-width="1.8"/>
+      <rect x="340" y="38" width="170" height="22" class="f-agar"/>
+      <g class="f-acc2"><ellipse cx="380" cy="113" rx="8" ry="2.6"/><ellipse cx="425" cy="113" rx="8" ry="2.6"/><ellipse cx="470" cy="113" rx="8" ry="2.6"/></g>
+      <text x="425" y="146" text-anchor="middle" class="ts">물방울은 뚜껑에 고이고 배지는 깨끗하게</text>
+      <text x="280" y="174" text-anchor="middle" class="tm">파라필름으로 밀봉한 뒤 뚜껑이 아래로 가게 둔다</text>
+    </svg>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>실험</th><th>배양 온도</th><th>배양 시간</th><th>이유</th></tr></thead>
+    <tbody>
+      <tr><td>실험 1</td><td class="k">35~37°C</td><td class="k">16~24 h</td><td>실험 균주의 적정 온도에서 빠르게 균층을 만든다</td></tr>
+      <tr><td>실험 2</td><td class="k">25~30°C</td><td class="k">24~48 h</td><td>종류를 모르는 채취 균이므로 체온에 가까운 온도를 피한다</td></tr>
+    </tbody>
+  </table></div>
+  <aside class="note"><b>왜 실험 2는 30°C 이하일까?</b> 37°C는 사람 체온과 같아 사람 몸에 사는 병원성 균이 잘 자라는 온도입니다. 종류를 알 수 없는 균은 실온에 가까운 온도에서 배양합니다. 배양하는 곳에 온도계를 두고 온도를 기록해 두면 결과를 해석할 때 도움이 됩니다.</aside>
+</section>
+
+<!-- ======================= 05 디스크 확산법 ======================= -->
+<section id="disk">
+  <div class="sec-no">04 · CONCEPT</div>
+  <h2>디스크 확산법</h2>
+  <div class="meta">Kirby–Bauer disk diffusion test</div>
+  <p>병원에서 환자에게서 분리한 균에 어떤 항생제가 효과적인지 확인하는 <span class="hl">항생제 감수성 검사법</span>이다. 실험 1에서는 항생제 대신 식물 추출물을 디스크에 묻혀 같은 원리로 비교한다.</p>
+
+  <div class="panel">
+    <div class="two" style="align-items:center">
+      <svg viewBox="0 0 260 260" role="img" aria-label="가운데 디스크에서 추출물이 퍼져 나가고 주변에 투명한 생육 저지대가 생긴 배지">
+        <circle cx="130" cy="130" r="122" class="f-agar st-ink" stroke-width="1.8"/>
+        <circle cx="130" cy="130" r="114" fill="url(#lawn)"/>
+        <circle cx="130" cy="130" r="62" class="f-clear"/>
+        <circle cx="130" cy="130" r="92" fill="url(#conc)"/>
+        <circle cx="130" cy="130" r="62" class="nf st-brick" stroke-width="1.8" stroke-dasharray="6 4"/>
+        <circle cx="130" cy="130" r="14" class="f-disk st-ink" stroke-width="1.4"/>
+        <g class="st-acc" stroke-width="1.6" stroke-linecap="round"><path d="M148 130 L176 130"/><path d="M112 130 L84 130"/><path d="M130 112 L130 84"/><path d="M130 148 L130 176"/></g>
+        <g class="f-acc"><path d="M176 125 L184 130 L176 135Z"/><path d="M84 125 L76 130 L84 135Z"/><path d="M125 84 L130 76 L135 84Z"/><path d="M125 176 L130 184 L135 176Z"/></g>
+      </svg>
+      <div>
+        <div class="qa"><div class="q">① 확산</div><div class="a"><p>디스크의 추출물이 한천 속 수분을 타고 사방으로 퍼진다.</p></div></div>
+        <div class="qa"><div class="q">② 농도 기울기</div><div class="a"><p>디스크에서 멀어질수록 농도가 낮아진다.</p></div></div>
+        <div class="qa"><div class="q">③ 생육 저지대</div><div class="a"><p>성장을 막을 만큼 농도가 높은 범위에서는 세균이 자라지 못해 <span class="hl">투명한 원</span>이 생긴다. 억제대라고도 한다.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h4>거리에 따른 농도</h4>
+    <svg viewBox="0 0 560 170" role="img" aria-label="디스크로부터 거리가 멀어질수록 농도가 낮아지고, 최소 억제 농도보다 높은 구간이 생육 저지대가 된다">
+      <rect x="40" y="14" width="170" height="122" style="fill:var(--warn-bg)"/>
+      <path d="M40 14 L40 136 L540 136" class="nf st-muted" stroke-width="1.2"/>
+      <path d="M40 22 C130 28 180 74 280 106 S470 132 540 134" class="nf st-acc" stroke-width="2.6"/>
+      <path d="M40 80 L540 80" class="st-brick" stroke-width="1.4" stroke-dasharray="6 5"/>
+      <path d="M210 14 L210 136" class="st-brick" stroke-width="1"/>
+      <text x="125" y="126" text-anchor="middle" class="tb">생육 저지대</text>
+      <text x="380" y="72" class="tb">최소 억제 농도 (MIC)</text>
+      <text x="290" y="158" text-anchor="middle" class="tm">디스크로부터의 거리 →</text>
+      <text x="46" y="10" class="tm">농도</text>
+    </svg>
+    <p class="cap">농도가 최소 억제 농도(MIC)보다 높은 범위까지가 생육 저지대가 된다.</p>
+  </div>
+
+  <h3>모식 모델 · 저지대는 무엇으로 정해질까 <span class="tag">단순화 모델</span></h3>
+  <div class="panel" id="zoneModel">
+    <div class="ctrl">
+      <label>확산 정도 <input type="range" id="zmD" min="0.5" max="4" step="0.1" value="2"><span class="out" id="zmDOut"></span></label>
+      <label>항균 세기 <input type="range" id="zmS" min="1" max="100" step="1" value="20"><span class="out" id="zmSOut"></span></label>
+    </div>
+    <div class="two" style="align-items:center">
+      <svg id="zmSvg" viewBox="0 0 240 240" role="img" aria-label="확산 정도와 항균 세기에 따라 바뀌는 생육 저지대"></svg>
+      <div>
+        <p class="out" id="zmOut"></p>
+        <p class="small">확산 정도는 성분이 한천 속으로 퍼지는 거리, 항균 세기는 디스크의 농도가 최소 억제 농도의 몇 배인지를 나타낸다. 두 값 중 하나만 작아도 저지대는 작아진다.</p>
+        <p class="small">농도가 거리에 따라 지수적으로 줄어든다고 가정: 저지대 반지름 = 확산 정도 × ln(항균 세기). 실제로는 배양 시간, 한천 두께, 분자 크기 등이 함께 영향을 준다.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>생육 저지대 읽기 <i>diameter, mm</i></h3>
+  <div class="two" style="align-items:center">
+    <div class="panel" style="margin:0">
+      <svg viewBox="0 0 240 240" role="img" aria-label="생육 저지대의 가로와 세로 지름을 재는 모습">
+        <circle cx="120" cy="120" r="112" class="f-agar st-ink" stroke-width="1.8"/>
+        <circle cx="120" cy="120" r="104" fill="url(#lawn)"/>
+        <circle cx="120" cy="120" r="56" class="f-clear st-brick" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <circle cx="120" cy="120" r="12" class="f-disk st-ink" stroke-width="1.3"/>
+        <path d="M64 120 L176 120 M64 110 L64 130 M176 110 L176 130" class="st-acc" stroke-width="1.8"/>
+        <path d="M120 64 L120 176" class="st-acc2" stroke-width="1.4" stroke-dasharray="4 3"/>
+      </svg>
+    </div>
+    <div>
+      <div class="qa"><div class="q">측정 위치</div><div class="a"><p>뚜껑을 열지 않고 <span class="hl">배지 뒷면</span>에서 자로 잰다.</p></div></div>
+      <div class="qa"><div class="q">측정 범위</div><div class="a"><p>디스크를 포함한 투명한 원 전체의 지름 (mm).</p></div></div>
+      <div class="qa"><div class="q">두 방향 평균</div><div class="a"><p>원이 완전히 동그랗지 않을 수 있으므로 가로 · 세로의 평균을 쓴다.</p></div></div>
+      <div class="qa"><div class="q">반복</div><div class="a"><p>같은 추출물을 디스크 2~3개에 묻혀 평균을 내면 우연한 오차가 줄어든다.</p></div></div>
+    </div>
+  </div>
+
+  <h3>결과에 따른 해석</h3>
+  <div class="panel">
+    <svg viewBox="0 0 560 170" role="img" aria-label="큰 저지대, 작은 저지대, 저지대 없음 세 가지 결과">
+      <g transform="translate(40 8)">
+        <circle cx="62" cy="62" r="58" class="f-agar st-ink" stroke-width="1.4"/><circle cx="62" cy="62" r="52" fill="url(#lawn)"/>
+        <circle cx="62" cy="62" r="38" class="f-clear st-brick" stroke-width="1.4" stroke-dasharray="5 3"/><circle cx="62" cy="62" r="9" class="f-disk st-ink" stroke-width="1.2"/>
+        <text x="62" y="142" text-anchor="middle" class="tlb">큰 저지대</text><text x="62" y="158" text-anchor="middle" class="ts">효과가 크고 잘 퍼짐</text>
+      </g>
+      <g transform="translate(218 8)">
+        <circle cx="62" cy="62" r="58" class="f-agar st-ink" stroke-width="1.4"/><circle cx="62" cy="62" r="52" fill="url(#lawn)"/>
+        <circle cx="62" cy="62" r="18" class="f-clear st-brick" stroke-width="1.4" stroke-dasharray="5 3"/><circle cx="62" cy="62" r="9" class="f-disk st-ink" stroke-width="1.2"/>
+        <text x="62" y="142" text-anchor="middle" class="tlb">작은 저지대</text><text x="62" y="158" text-anchor="middle" class="ts">효과가 약하거나 덜 퍼짐</text>
+      </g>
+      <g transform="translate(396 8)">
+        <circle cx="62" cy="62" r="58" class="f-agar st-ink" stroke-width="1.4"/><circle cx="62" cy="62" r="52" fill="url(#lawn)"/>
+        <circle cx="62" cy="62" r="9" class="f-disk st-ink" stroke-width="1.2"/>
+        <text x="62" y="142" text-anchor="middle" class="tlb">저지대 없음</text><text x="62" y="158" text-anchor="middle" class="ts">효과 없음 또는 퍼지지 못함</text>
+      </g>
+    </svg>
+  </div>
+  <aside class="info"><b>저지대 크기 ≠ 항균력 그 자체.</b> 저지대가 작거나 없다는 결과만으로 항균 효과가 없다고 단정할 수 없습니다. 아래 세 가지 변수가 함께 작용합니다.</aside>
+
+  <h3>저지대 크기에 영향을 주는 변수</h3>
+  <div class="two">
+    <div class="panel" style="margin:0">
+      <h4>① 확산성</h4>
+      <svg viewBox="0 0 260 130" role="img" aria-label="수용성 성분은 멀리 퍼지고 지용성 성분은 잘 퍼지지 않는다">
+        <g transform="translate(10 6)">
+          <circle cx="56" cy="56" r="52" class="f-agar st-ink" stroke-width="1.2"/><circle cx="56" cy="56" r="48" fill="url(#lawn)"/>
+          <circle cx="56" cy="56" r="36" class="f-clear st-brick" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <g class="f-acc2"><circle cx="36" cy="42" r="2.4"/><circle cx="78" cy="40" r="2.4"/><circle cx="34" cy="72" r="2.4"/><circle cx="76" cy="74" r="2.4"/><circle cx="56" cy="26" r="2.4"/><circle cx="56" cy="88" r="2.4"/></g>
+          <circle cx="56" cy="56" r="8" class="f-disk st-ink" stroke-width="1.1"/>
+          <text x="56" y="122" text-anchor="middle" class="ts">수용성 · 작은 분자</text>
+        </g>
+        <g transform="translate(136 6)">
+          <circle cx="56" cy="56" r="52" class="f-agar st-ink" stroke-width="1.2"/><circle cx="56" cy="56" r="48" fill="url(#lawn)"/>
+          <circle cx="56" cy="56" r="15" class="f-clear st-brick" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <g class="f-brick"><circle cx="50" cy="49" r="2.6"/><circle cx="63" cy="50" r="2.6"/><circle cx="50" cy="63" r="2.6"/><circle cx="63" cy="62" r="2.6"/></g>
+          <circle cx="56" cy="56" r="8" class="f-disk st-ink" stroke-width="1.1"/>
+          <text x="56" y="122" text-anchor="middle" class="ts">지용성 (테르펜 등)</text>
+        </g>
+      </svg>
+      <p class="small">한천은 대부분 물이라 기름 성분은 항균력이 있어도 저지대가 실제보다 작게 나올 수 있다.</p>
+    </div>
+    <div class="panel" style="margin:0">
+      <h4>② 균의 종류</h4>
+      <svg viewBox="0 0 260 130" role="img" aria-label="그람 양성균은 두꺼운 펩티도글리칸, 그람 음성균은 얇은 펩티도글리칸과 외막">
+        <g transform="translate(6 4)">
+          <text x="58" y="12" text-anchor="middle" class="tlb">그람 양성균</text>
+          <rect x="4" y="22" width="108" height="44" class="f-soft st-acc2" stroke-width="1"/>
+          <rect x="4" y="66" width="108" height="8" class="f-acc"/>
+          <text x="58" y="42" text-anchor="middle" class="ts">펩티도글리칸</text><text x="58" y="57" text-anchor="middle" class="tm">(두꺼움)</text>
+          <text x="58" y="90" text-anchor="middle" class="tm">세포막</text>
+          <text x="58" y="112" text-anchor="middle" class="ts">물질이 비교적 잘 통과</text>
+        </g>
+        <g transform="translate(138 4)">
+          <text x="58" y="12" text-anchor="middle" class="tlb">그람 음성균</text>
+          <rect x="4" y="22" width="108" height="12" class="f-brick"/>
+          <rect x="4" y="34" width="108" height="20" class="f-bg"/>
+          <rect x="4" y="54" width="108" height="12" class="f-soft st-acc2" stroke-width="1"/>
+          <rect x="4" y="66" width="108" height="8" class="f-acc"/>
+          <text x="58" y="31.5" text-anchor="middle" style="fill:#fff;font:700 9.5px var(--body)">외막</text>
+          <text x="58" y="47" text-anchor="middle" class="tm">주변세포질</text>
+          <text x="58" y="90" text-anchor="middle" class="tm">세포막</text>
+          <text x="58" y="112" text-anchor="middle" class="tb">외막이 침투를 막음</text>
+        </g>
+      </svg>
+      <p class="small">같은 추출물도 균에 따라 결과가 다르다. 녹차의 카테킨은 그람 양성균에 더 강하게 작용한다.</p>
+    </div>
+  </div>
+  <div class="qa" style="margin-top:14px"><div class="q">③ 용매</div><div class="a"><p>에탄올 같은 추출 용매 자체에도 항균 작용이 있다. <span class="hl">용매만 묻힌 디스크</span>를 함께 올려 비교해야 추출물의 효과만 분리할 수 있다.</p></div></div>
+</section>
+
+<!-- ======================= 06 변인 ======================= -->
+<section id="vars">
+  <div class="sec-no">05 · DESIGN</div>
+  <h2>변인과 대조군</h2>
+  <div class="meta">independent · dependent · controlled</div>
+  <div class="tbl"><table>
+    <thead><tr><th>구분</th><th>실험 1</th><th>실험 2</th></tr></thead>
+    <tbody>
+      <tr><td>독립 변인</td><td>추출물 종류</td><td>채취 표면 · 위생 조건</td></tr>
+      <tr><td>종속 변인</td><td>생육 저지대 지름 <span class="k">(mm)</span></td><td>집락 수 <span class="k">(개)</span></td></tr>
+      <tr><td>통제 변인</td><td>배지 양, 균액 양, 디스크 크기, 추출액 양, 배양 온도와 시간</td><td>문지른 면적과 횟수, 배지 양, 배양 온도와 시간</td></tr>
+      <tr><td>대조군</td><td>증류수(또는 용매)만 묻힌 디스크</td><td>아무것도 묻히지 않은 배지</td></tr>
+    </tbody>
+  </table></div>
+  <aside class="info"><b>대조군은 비교의 기준</b>입니다. 증류수 디스크에 저지대가 없고, 빈 배지에 집락이 없어야 배지와 조작 과정이 오염되지 않았다고 판단할 수 있습니다. 모든 배지는 같은 곳에서 같은 시간 동안 배양합니다.</aside>
+</section>
+
+<!-- ======================= 실험 1 ======================= -->
+<section id="exp1" class="part-break">
+  <div class="sec-no">EXPERIMENT 1</div>
+  <h2>디스크 확산법을 이용한 식물 추출물의 항균 활성 비교 실험</h2>
+  <div class="meta">솔잎 · 편백잎 · 은행잎 · 녹차 · 대조군 증류수</div>
+  <p>생활 주변 식물에서 얻은 추출물이 세균의 성장을 얼마나 억제하는지 생육 저지대의 크기로 비교한다.</p>
+
+  <h3>준비물</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>구분</th><th>항목</th></tr></thead>
+    <tbody>
+      <tr><td>배양 재료</td><td>LB agar 가루 2 g + 증류수 50 mL, 페트리 접시, 실험 균주, 페이퍼 디스크, 스프레더, 파라필름</td></tr>
+      <tr><td>추출액</td><td>솔잎 · 편백잎 · 은행잎 추출액, 녹차 추출액(직접 제조)</td></tr>
+      <tr><td>기구</td><td>전자레인지, 내열장갑, 피펫팁, 주사기, 핀셋, 가위, 네임펜, 자, 온도계</td></tr>
+      <tr><td>기타</td><td>증류수, 사용한 피펫팁 수거 용기, 랩 또는 깨끗한 비닐</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>녹차 추출액 만들기</h3>
+  <div class="panel">
+    <svg viewBox="0 0 560 130" role="img" aria-label="녹차 추출: 물 데우기, 티백 우리기, 짜고 식혀 튜브에 담기">
+      <g transform="translate(46 4)">
+        <path d="M14 26 L24 86 L72 86 L82 26 Z" class="f-soft st-ink" stroke-width="1.6"/>
+        <path d="M38 20 q4 -8 0 -16 M56 20 q4 -8 0 -16" class="nf st-brick" stroke-width="1.6" stroke-linecap="round"/>
+        <text x="48" y="108" text-anchor="middle" class="tlb">80~90°C</text><text x="48" y="124" text-anchor="middle" class="tm">증류수 20 mL</text>
+      </g>
+      <path d="M160 52 L184 52" class="st-muted" stroke-width="1.4"/><path d="M182 47 L189 52 L182 57Z" class="f-muted"/>
+      <g transform="translate(222 4)">
+        <path d="M14 26 L24 86 L72 86 L82 26 Z" style="fill:#c7d39a" class="st-ink" stroke-width="1.6"/>
+        <path d="M48 0 L48 38" class="st-dish" stroke-width="1.2"/>
+        <rect x="36" y="38" width="24" height="30" rx="3" style="fill:#e7eed2;stroke:#5f7a2e" stroke-width="1.2"/>
+        <text x="48" y="108" text-anchor="middle" class="tlb">10분 우리기</text><text x="48" y="124" text-anchor="middle" class="tm">숟가락으로 누르며</text>
+      </g>
+      <path d="M336 52 L360 52" class="st-muted" stroke-width="1.4"/><path d="M358 47 L365 52 L358 57Z" class="f-muted"/>
+      <g transform="translate(398 4)">
+        <path d="M34 14 L34 74 Q34 86 46 86 L50 86 Q62 86 62 74 L62 14" style="fill:#c7d39a" class="st-ink" stroke-width="1.6"/>
+        <rect x="29" y="6" width="38" height="9" rx="2" class="f-acc"/>
+        <text x="48" y="108" text-anchor="middle" class="tlb">짜고 식히기</text><text x="48" y="124" text-anchor="middle" class="tm">튜브에 담기</text>
+      </g>
+    </svg>
+  </div>
+  <aside class="note"><b>팁</b><ul>
+    <li>물이 적을수록 진하게 우러난다. 더 진하게 하려면 티백을 잘라 찻잎만 우린 뒤 커피필터로 거른다.</li>
+    <li>카테킨은 시간이 지나면 산화되어 갈색으로 변하므로 실험 직전에 만든다.</li>
+    <li>현미녹차처럼 다른 재료가 섞인 제품은 피한다.</li>
+  </ul></aside>
+
+  <h3>디스크 배치</h3>
+  <div class="two" style="align-items:center">
+    <div class="panel" style="margin:0">
+      <svg viewBox="0 0 260 260" role="img" aria-label="한 배지에 편백잎, 솔잎, 녹차, 은행잎, 증류수 디스크 다섯 개를 2 cm 이상 간격으로 배치">
+        <circle cx="130" cy="130" r="122" class="f-agar st-ink" stroke-width="1.8"/>
+        <circle cx="130" cy="130" r="114" fill="url(#lawn)"/>
+        <path d="M130 16 L130 244 M16 130 L244 130" class="st-ink" stroke-width="1" stroke-dasharray="4 4" opacity=".35"/>
+        <g class="f-disk st-ink" stroke-width="1.4"><circle cx="78" cy="78" r="13"/><circle cx="182" cy="78" r="13"/><circle cx="78" cy="182" r="13"/><circle cx="182" cy="182" r="13"/><circle cx="130" cy="130" r="13"/></g>
+        <g text-anchor="middle">
+          <rect x="52" y="44" width="52" height="16" rx="8" class="f-surf"/><text x="78" y="56" class="tlb">편백잎</text>
+          <rect x="160" y="44" width="44" height="16" rx="8" class="f-surf"/><text x="182" y="56" class="tlb">솔잎</text>
+          <rect x="56" y="200" width="44" height="16" rx="8" class="f-surf"/><text x="78" y="212" class="tlb">녹차</text>
+          <rect x="156" y="200" width="52" height="16" rx="8" class="f-surf"/><text x="182" y="212" class="tlb">은행잎</text>
+          <rect x="104" y="148" width="52" height="16" rx="8" class="f-acc"/><text x="130" y="160" style="fill:var(--surface);font:700 11.5px var(--body)">증류수</text>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <div class="qa"><div class="q">개수</div><div class="a"><p>배지 하나에 <span class="hl">4~5개</span>.</p></div></div>
+      <div class="qa"><div class="q">간격</div><div class="a"><p>디스크 사이 <span class="hl">2 cm 이상</span>. 저지대가 겹치지 않게 한다.</p></div></div>
+      <div class="qa"><div class="q">표시</div><div class="a"><p>배지 바닥에 네임펜으로 구역과 추출물 이름을 미리 적는다.</p></div></div>
+      <div class="qa"><div class="q">대조군</div><div class="a"><p>증류수 디스크에는 저지대가 생기지 않아야 정상이다.</p></div></div>
+    </div>
+  </div>
+
+  <h3>실험 방법</h3>
+  <ol class="steps">
+    <li><span><b>배지 준비.</b> LB agar 배지를 만들어 굳힌다.</span></li>
+    <li><span><b>구역 표시.</b> 배지 바닥에 네임펜으로 구역을 나누고 추출물 이름을 적는다.</span></li>
+    <li><span><b>도말.</b> 균액을 소량 떨어뜨리고 스프레더로 배지 전체에 빈틈없이 고르게 편다.</span></li>
+    <li><span><b>디스크 적시기.</b> 핀셋으로 디스크를 잡고 추출액을 같은 양(2~3방울)씩 묻힌다. 증류수 디스크도 준비한다.</span></li>
+    <li><span><b>디스크 올리기.</b> 표시한 위치에 올리고 핀셋으로 살짝 눌러 밀착시킨다. 10분 정도 두어 스며들게 한다.</span></li>
+    <li><span><b>밀봉 · 배양.</b> 파라필름으로 밀봉하고 뒤집어 35~37°C에서 16~24시간 배양한다.</span></li>
+    <li><span><b>측정.</b> 뚜껑을 열지 않고 배지 뒷면에서 저지대 지름을 잰다. 균층이 옅으면 검은 배경에 대고 보면 경계가 잘 보인다.</span></li>
+  </ol>
+
+  <h3>가설과 예상</h3>
+  <div class="qa"><div class="q">가설</div><div class="a"><p><b>편백잎 추출물의 생육 저지대가 가장 클 것이다.</b></p></div></div>
+  <div class="panel">
+    <h4>예상 항균력 <span class="tag">정성적 예상</span></h4>
+    <svg viewBox="0 0 560 190" role="img" aria-label="예상 항균력: 편백잎 중간에서 강함, 솔잎 중간, 녹차 중간, 은행잎 약함, 증류수 없음">
+      <g class="st-line" stroke-width="1"><path d="M110 14 L110 176"/><path d="M247 14 L247 176"/><path d="M384 14 L384 176"/><path d="M521 14 L521 176"/></g>
+      <g text-anchor="middle" class="tm"><text x="110" y="10">없음</text><text x="247" y="10">약함</text><text x="384" y="10">중간</text><text x="521" y="10">강함</text></g>
+      <g class="tl"><text x="0" y="38">편백잎</text><text x="0" y="72">솔잎</text><text x="0" y="106">녹차</text><text x="0" y="140">은행잎</text><text x="0" y="174">증류수</text></g>
+      <rect x="110" y="26" width="350" height="16" rx="3" class="f-acc"/>
+      <rect x="460" y="26" width="61" height="16" rx="3" class="f-acc" opacity=".35"/>
+      <rect x="110" y="60" width="274" height="16" rx="3" class="f-acc"/>
+      <rect x="110" y="94" width="274" height="16" rx="3" class="f-acc2"/>
+      <rect x="110" y="128" width="137" height="16" rx="3" class="f-acc"/>
+      <path d="M110 160 L110 176" class="st-muted" stroke-width="3"/>
+      <text x="398" y="106" class="ts">그람 양성균이면 ↑</text>
+    </svg>
+    <p class="cap">문헌 경향을 바탕으로 한 정성적 예상이며 측정값이 아니다. 편백잎의 옅은 구간은 예상 범위.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>추출물</th><th>주요 항균 성분</th><th>예상의 근거</th></tr></thead>
+    <tbody>
+      <tr><td>편백잎</td><td>히노키티올</td><td>항균 · 항진균 작용이 알려진 성분</td></tr>
+      <tr><td>솔잎</td><td>테르펜류 (피넨 등)</td><td>항균력은 있으나 기름 성분이라 확산이 제한될 수 있음</td></tr>
+      <tr><td>녹차</td><td>카테킨 (EGCG)</td><td>그람 양성균에 강하고 그람 음성균에 약함</td></tr>
+      <tr><td>은행잎</td><td>플라보노이드</td><td>다른 추출물보다 항균 작용이 약할 것으로 예상</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">결과가 예상과 다르면 확산성, 균의 종류, 용매를 기준으로 원인을 분석한다.</p>
+</section>
+
+<!-- ======================= 실험 2 ======================= -->
+<section id="exp2" class="part-break">
+  <div class="sec-no">EXPERIMENT 2</div>
+  <h2>접촉 표면과 위생 조건에 따른 생활 속 세균 배양 실험</h2>
+  <div class="meta">surface swab · colony count · 25~30°C</div>
+  <p>생활 공간의 표면과 손에서 세균을 채취해 배양하고, 집락 수로 오염 정도를 비교한다.</p>
+
+  <h3>준비물</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>구분</th><th>항목</th></tr></thead>
+    <tbody>
+      <tr><td>배양 재료</td><td>LB agar 배지, 페트리 접시, 멸균 면봉, 증류수, 파라필름</td></tr>
+      <tr><td>기구 · 기타</td><td>네임펜, 자(채취 면적 표시), 사용한 면봉 수거 용기, 온도계</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>채취 방법</h3>
+  <div class="two" style="align-items:center">
+    <div class="panel" style="margin:0">
+      <svg viewBox="0 0 260 200" role="img" aria-label="5 × 5 cm 정사각형 안을 면봉으로 지그재그로 문지른다">
+        <rect x="10" y="10" width="240" height="160" rx="8" class="f-bg"/>
+        <rect x="70" y="26" width="120" height="120" class="f-surf st-acc" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <path d="M84 42 L176 54 L84 68 L176 82 L84 96 L176 110 L84 128" class="nf st-acc2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <g transform="rotate(32 186 70)"><rect x="183" y="18" width="5" height="62" rx="2.5" style="fill:#ece7da" class="st-dish" stroke-width="1"/><ellipse cx="185.5" cy="82" rx="7" ry="10" class="f-surf st-dish" stroke-width="1"/></g>
+        <path d="M70 156 L190 156 M70 151 L70 161 M190 151 L190 161" class="st-muted" stroke-width="1.2"/>
+        <text x="130" y="188" text-anchor="middle" class="tm">5 cm × 5 cm · 같은 횟수</text>
+      </svg>
+    </div>
+    <div>
+      <div class="qa"><div class="q">면봉</div><div class="a"><p>증류수를 <span class="hl">살짝</span>만 묻힌다. 너무 젖으면 배지에서 집락이 번진다.</p></div></div>
+      <div class="qa"><div class="q">면적 · 횟수</div><div class="a"><p>모든 곳에서 <span class="hl">같은 면적을 같은 횟수</span>로 문질러야 비교할 수 있다.</p></div></div>
+      <div class="qa"><div class="q">손</div><div class="a"><p>손가락을 배지 표면에 가볍게 찍는 방식으로도 채취할 수 있다.</p></div></div>
+    </div>
+  </div>
+
+  <h3>실험 방법</h3>
+  <ol class="steps">
+    <li><span><b>비교 조건 정하기.</b> 비교할 표면이나 위생 조건을 정하고, 배지 바닥에 채취 장소와 날짜를 적는다.</span></li>
+    <li><span><b>대조군 준비.</b> 아무것도 묻히지 않은 배지 1개를 함께 배양한다.</span></li>
+    <li><span><b>채취.</b> 증류수를 살짝 묻힌 면봉으로 정해진 면적을 같은 횟수만큼 문지른다.</span></li>
+    <li><span><b>접종.</b> 면봉을 배지 표면에 지그재그로 가볍게 바른다. 배지가 찢어지지 않게 힘을 주지 않는다.</span></li>
+    <li><span><b>밀봉 · 배양.</b> 바로 파라필름으로 밀봉하고 뒤집어 25~30°C에서 24~48시간 배양한다.</span></li>
+    <li><span><b>관찰.</b> 뚜껑을 열지 않은 채 집락 수를 세고, 모양 · 색 · 크기를 관찰해 사진으로 남긴다.</span></li>
+  </ol>
+
+  <h3>집락 세는 법</h3>
+  <div class="two" style="align-items:center">
+    <div class="panel" style="margin:0">
+      <svg viewBox="0 0 240 240" role="img" aria-label="배지를 4구역으로 나눠 한 구역의 집락 수에 4를 곱한다">
+        <circle cx="120" cy="120" r="110" class="f-agar st-ink" stroke-width="1.8"/>
+        <path d="M120 120 L120 10 A110 110 0 0 1 230 120 Z" class="f-acc2" opacity=".16"/>
+        <path d="M120 10 L120 230 M10 120 L230 120" class="st-ink" stroke-width="1" stroke-dasharray="5 4" opacity=".6"/>
+        <g class="f-agar2" style="stroke:#a37c2a" stroke-width="1">
+          <circle cx="142" cy="44" r="4.5"/><circle cx="166" cy="66" r="3.5"/><circle cx="192" cy="94" r="5"/><circle cx="148" cy="88" r="3"/><circle cx="182" cy="52" r="4"/><circle cx="208" cy="110" r="3"/><circle cx="138" cy="106" r="3.5"/>
+          <circle cx="56" cy="62" r="4"/><circle cx="88" cy="44" r="3"/><circle cx="72" cy="94" r="4.5"/><circle cx="38" cy="104" r="3"/><circle cx="98" cy="82" r="3.5"/>
+          <circle cx="56" cy="152" r="4"/><circle cx="82" cy="180" r="3.5"/><circle cx="98" cy="142" r="4.5"/><circle cx="50" cy="190" r="3"/>
+          <circle cx="152" cy="164" r="3.5"/><circle cx="186" cy="148" r="4.5"/><circle cx="164" cy="198" r="3"/><circle cx="202" cy="174" r="4"/><circle cx="136" cy="136" r="3"/>
+        </g>
+        <text x="188" y="36" class="ta">×4</text>
+      </svg>
+    </div>
+    <div>
+      <div class="qa"><div class="q">셀 수 있을 때</div><div class="a"><p>배지 뒷면에 네임펜으로 하나씩 점을 찍으며 센다. 중복을 막는다.</p></div></div>
+      <div class="qa"><div class="q">너무 많을 때</div><div class="a"><p>십자선으로 4구역을 나눠 <span class="hl">한 구역의 수 × 4</span>로 추정한다.</p></div></div>
+      <div class="qa"><div class="q">함께 기록</div><div class="a"><p>집락의 모양 · 색 · 크기, 배양 시간과 온도.</p></div></div>
+    </div>
+  </div>
+
+  <h3>가설</h3>
+  <div class="two">
+    <div class="panel" style="margin:0">
+      <svg viewBox="0 0 260 96" aria-hidden="true">
+        <circle cx="50" cy="48" r="40" class="f-agar st-ink" stroke-width="1.4"/>
+        <g class="f-agar2" style="stroke:#a37c2a" stroke-width="1"><circle cx="40" cy="36" r="4"/><circle cx="62" cy="58" r="4"/></g>
+        <path d="M108 48 L142 48" class="st-muted" stroke-width="1.4"/><path d="M140 43 L147 48 L140 53Z" class="f-muted"/>
+        <circle cx="206" cy="48" r="40" class="f-agar st-ink" stroke-width="1.4"/>
+        <g class="f-agar2" style="stroke:#a37c2a" stroke-width="1"><circle cx="186" cy="30" r="4"/><circle cx="206" cy="22" r="4"/><circle cx="228" cy="34" r="4"/><circle cx="192" cy="52" r="4"/><circle cx="218" cy="56" r="4"/><circle cx="180" cy="66" r="4"/><circle cx="208" cy="74" r="4"/><circle cx="232" cy="64" r="4"/><circle cx="204" cy="40" r="4"/></g>
+      </svg>
+      <h4 style="margin-top:8px">H1 · 접촉 빈도</h4>
+      <p class="small">접촉이 잦은 표면일수록 집락 수가 많을 것이다.</p>
+    </div>
+    <div class="panel" style="margin:0">
+      <svg viewBox="0 0 260 96" aria-hidden="true">
+        <circle cx="50" cy="48" r="40" class="f-agar st-ink" stroke-width="1.4"/>
+        <g class="f-agar2" style="stroke:#a37c2a" stroke-width="1"><circle cx="30" cy="30" r="4"/><circle cx="50" cy="22" r="4"/><circle cx="72" cy="34" r="4"/><circle cx="36" cy="52" r="4"/><circle cx="62" cy="56" r="4"/><circle cx="24" cy="66" r="4"/><circle cx="52" cy="74" r="4"/><circle cx="76" cy="64" r="4"/><circle cx="48" cy="40" r="4"/></g>
+        <path d="M108 48 L142 48" class="st-muted" stroke-width="1.4"/><path d="M140 43 L147 48 L140 53Z" class="f-muted"/>
+        <text x="125" y="38" text-anchor="middle" class="tm">소독</text>
+        <circle cx="206" cy="48" r="40" class="f-agar st-ink" stroke-width="1.4"/>
+        <g class="f-agar2" style="stroke:#a37c2a" stroke-width="1"><circle cx="196" cy="36" r="4"/><circle cx="220" cy="60" r="4"/></g>
+      </svg>
+      <h4 style="margin-top:8px">H2 · 위생 조건</h4>
+      <p class="small">손 씻기 · 소독 후에는 집락 수가 줄어들 것이다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 02 증식 ======================= -->
+<section id="growth" class="part-break">
+  <div class="sec-no">06 · CONCEPT</div>
+  <h2>세균이 자라는 조건과 증식 곡선</h2>
+  <div class="meta">nutrients · water · temperature · time</div>
+
+  <div class="tiles">
+    <div class="tile"><div class="lbl">NUTRIENT</div><div class="val">LB 배지</div><p>탄소원 · 질소원 공급</p></div>
+    <div class="tile"><div class="lbl">WATER</div><div class="val">한천 속 물</div><p>배지가 마르면 성장 정지</p></div>
+    <div class="tile"><div class="lbl">TEMP</div><div class="val">25~37°C</div><p>낮을수록 느리게 자람</p></div>
+    <div class="tile"><div class="lbl">TIME</div><div class="val">16~48 h</div><p>온도에 따라 달라짐</p></div>
+  </div>
+
+  <h3>증식 곡선 <i>growth curve</i></h3>
+  <div class="panel">
+    <svg viewBox="0 0 560 270" role="img" aria-label="세균 증식 곡선: 유도기, 대수기, 정지기, 사멸기">
+      <rect x="48" y="12" width="110" height="208" class="f-bg"/>
+      <rect x="158" y="12" width="120" height="208" class="f-soft"/>
+      <rect x="278" y="12" width="120" height="208" class="f-bg"/>
+      <rect x="398" y="12" width="140" height="208" class="f-bg" opacity=".6"/>
+      <path d="M48 12 L48 220 L540 220" class="nf st-muted" stroke-width="1.2"/>
+      <path d="M48 192 L140 192 C152 192 158 188 166 178 L262 78 C270 70 274 68 286 68 L384 68 C396 68 402 72 410 80 L528 150" class="nf st-acc" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="214" cy="127" r="4" class="f-brick"/>
+      <text x="222" y="131" class="tb">약 20분마다 2배</text>
+      <g text-anchor="middle"><text x="103" y="240" class="tl">유도기</text><text x="218" y="240" class="ta">대수기</text><text x="338" y="240" class="tl">정지기</text><text x="468" y="240" class="tl">사멸기</text></g>
+      <text x="540" y="262" text-anchor="end" class="tm">시간 →</text>
+      <text x="54" y="26" class="tm">세균 수 (log)</text>
+    </svg>
+    <p class="cap">세로축을 로그로 그리면 대수기가 직선으로 나타난다. 대장균, 37°C 기준.</p>
+  </div>
+
+  <h3>모식 모델 · 온도와 분열 <span class="tag">단순화 모델</span></h3>
+  <div class="panel" id="divModel">
+    <div class="ctrl">
+      <label>온도
+        <select id="dmTemp">
+          <option value="20">37°C · 세대 시간 약 20분</option>
+          <option value="30">30°C · 약 30분</option>
+          <option value="60">25°C · 약 60분</option>
+        </select>
+      </label>
+      <label>배양 시간 <input type="range" id="dmHour" min="0" max="16" step="0.5" value="8"><span class="out" id="dmHourOut">8 h</span></label>
+    </div>
+    <svg id="dmSvg" viewBox="0 0 560 120" role="img" aria-label="배양 시간에 따른 세균 수 막대"></svg>
+    <p class="out" id="dmOut"></p>
+    <p class="cap">세균 1개에서 시작해 대수기만 계속된다고 가정한 계산 (2<sup>n</sup>). 실제로는 유도기와 정지기가 있어 이보다 적다. 세대 시간은 대장균의 대략적 값.</p>
+  </div>
+</section>
+
+<!-- ======================= 안전 ======================= -->
+<section id="safety" class="part-break">
+  <div class="sec-no">SAFETY</div>
+  <h2>안전 수칙</h2>
+  <div class="meta">배양한 세균은 처음보다 수가 크게 늘어난 상태다</div>
+  <ol class="steps">
+    <li><span><b>밀봉한 배지는 끝까지 열지 않는다.</b> 뚜껑을 닫은 채 바깥에서 관찰하고 사진을 찍는다.</span></li>
+    <li><span><b>냄새를 맡거나 맨손으로 만지지 않는다.</b></span></li>
+    <li><span><b>신체 분비물은 채취하지 않는다.</b> 입안 · 콧속 · 침 등은 채취 대상에서 제외한다.</span></li>
+    <li><span><b>알코올은 불 가까이 두지 않는다.</b> 소독용 알코올은 인화성이 있다.</span></li>
+    <li><span><b>실험 후 비누로 손을 씻는다.</b></span></li>
+    <li><span><b>소독 후 폐기한다.</b> 밀봉한 상태 그대로 희석한 락스에 하루 정도 담가 소독한 뒤 비닐에 싸서 버린다.</span></li>
+  </ol>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p><b>IGNIS</b> · 세균 배양 실험 안내 · 2026</p>
+  <p>디스크 확산법을 이용한 식물 추출물의 항균 활성 비교 실험 / 접촉 표면과 위생 조건에 따른 생활 속 세균 배양 실험</p>
+</div></footer>
+
+<script>
+(function(){
+  const NS='http://www.w3.org/2000/svg';
+  const $=id=>document.getElementById(id);
+
+  /* ---- division model ---- */
+  function sci(n){ // n = exponent of 2
+    const v=Math.pow(2,n);
+    if(v<1e4) return Math.round(v).toLocaleString('ko-KR');
+    const e=Math.floor(Math.log10(v)); const m=v/Math.pow(10,e);
+    const sup='⁰¹²³⁴⁵⁶⁷⁸⁹'; const es=String(e).split('').map(d=>sup[+d]).join('');
+    return m.toFixed(1)+' × 10'+es;
+  }
+  function drawDiv(){
+    const g=+$('dmTemp').value, h=+$('dmHour').value;
+    const n=Math.floor(h*60/g);
+    $('dmHourOut').textContent=h+' h';
+    const maxN=48; // 16 h at 20 min
+    const W=500, x0=40, y=44;
+    const w=Math.max(2,W*n/maxN);
+    const marks=[0,10,20,30,40,48].map(k=>{
+      const x=x0+W*k/maxN;
+      return `<path d="M${x} ${y+30} L${x} ${y+36}" class="st-muted" stroke-width="1"/><text x="${x}" y="${y+50}" text-anchor="middle" class="tm">2^${k}</text>`;
+    }).join('');
+    const v9=x0+W*30/maxN;
+    $('dmSvg').innerHTML=
+      `<rect x="${x0}" y="${y}" width="${W}" height="26" rx="4" class="f-bg"/>`+
+      `<rect x="${x0}" y="${y}" width="${w}" height="26" rx="4" class="f-acc"/>`+
+      `<path d="M${v9} ${y-8} L${v9} ${y+30}" class="st-brick" stroke-width="1.4" stroke-dasharray="4 3"/>`+
+      `<text x="${v9}" y="${y-14}" text-anchor="middle" class="tb">약 10억 (2^30)</text>`+
+      `<text x="${x0}" y="${y-14}" class="tm">분열 횟수 (log 눈금)</text>`+marks;
+    $('dmOut').innerHTML=`분열 <b>${n}회</b> → 세균 <b>${sci(n)}개</b> <span class="muted">(1개에서 시작)</span>`;
+  }
+  ['dmTemp','dmHour'].forEach(id=>$(id).addEventListener('input',drawDiv));
+  drawDiv();
+
+  /* ---- zone model ---- */
+  function drawZone(){
+    const D=+$('zmD').value, S=+$('zmS').value;
+    $('zmDOut').textContent=D.toFixed(1)+' mm';
+    $('zmSOut').textContent='MIC × '+S;
+    const disk=6; // mm
+    const r = D*Math.log(S); // mm beyond disk edge
+    const dia = Math.min(60, disk + 2*r);
+    const R=100, sc=R/45; // 90 mm dish
+    const zr=(dia/2)*sc, dr=(disk/2)*sc;
+    const cr=Math.min(R-6,(disk/2 + D*Math.log(100))*sc);
+    $('zmSvg').innerHTML=
+      `<circle cx="120" cy="120" r="${R+8}" class="f-agar st-ink" stroke-width="1.8"/>`+
+      `<circle cx="120" cy="120" r="${R}" fill="url(#lawn)"/>`+
+      (dia>disk+0.05?`<circle cx="120" cy="120" r="${zr}" class="f-clear st-brick" stroke-width="1.6" stroke-dasharray="6 4"/>`:'')+
+      `<circle cx="120" cy="120" r="${cr}" fill="url(#conc)" opacity=".7"/>`+
+      `<circle cx="120" cy="120" r="${dr}" class="f-disk st-ink" stroke-width="1.3"/>`+
+      `<text x="120" y="236" text-anchor="middle" class="tm">배지 지름 90 mm · 디스크 6 mm</text>`;
+    const txt = S<=1 ? '저지대 없음' : `저지대 지름 ≈ <b>${dia.toFixed(1)} mm</b>`;
+    $('zmOut').innerHTML=txt;
+  }
+  ['zmD','zmS'].forEach(id=>$(id).addEventListener('input',drawZone));
+  drawZone();
+})();
+</script>
+</body>
+</html>
